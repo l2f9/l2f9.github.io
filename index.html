@@ -1,184 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Nugdalla | AI Engineer & Builder</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
-        * { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        .gradient-text { background: linear-gradient(to right, #22d3ee, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Nugdalla | AI Engineer &amp; Builder</title>
+  <meta name="description" content="Mohammed Nugdalla is a Computer Scientist and AI Engineer based in Qatar, building machine learning pipelines, LLM tools and automation that solve real problems.">
+  <meta name="author" content="Mohammed Nugdalla">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="canonical" href="https://l2f9.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohammed Nugdalla | AI Engineer &amp; Builder">
+  <meta property="og:description" content="ML pipelines, LLM tools and automation that solve real problems.">
+  <meta property="og:url" content="https://l2f9.github.io/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d12'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='28' font-weight='700' text-anchor='middle' fill='%2322d3ee'%3EMN%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --surface: #12151c;
+      --surface-2: #181c25;
+      --border: #232834;
+      --text: #e8eaf0;
+      --muted: #9aa3b2;
+      --accent: #22d3ee;
+      --accent-2: #3b82f6;
+      --radius: 14px;
+      --max: 1080px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f8fb;
+        --surface: #ffffff;
+        --surface-2: #f0f2f7;
+        --border: #dfe3ec;
+        --text: #11141b;
+        --muted: #586174;
+        --accent: #0891b2;
+        --accent-2: #2563eb;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 1rem/1.7 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: min(100% - 3rem, var(--max)); margin-inline: auto; }
+    .skip {
+      position: absolute; left: -999px; top: 0; background: var(--accent); color: #001018;
+      padding: .6rem 1rem; z-index: 100; border-radius: 0 0 8px 0;
+    }
+    .skip:focus { left: 0; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; letter-spacing: .12em; }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+    nav a { font-size: .85rem; font-weight: 500; letter-spacing: .08em; color: var(--muted); transition: color .2s; }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding: clamp(5rem, 14vw, 9rem) 0 clamp(4rem, 10vw, 7rem); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: -20% -10% auto auto; width: 560px; height: 560px;
+      background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
+      pointer-events: none;
+    }
+    .eyebrow { color: var(--accent); font-size: .8rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+    h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.05; font-weight: 700; letter-spacing: -.03em; margin: 1rem 0 1.25rem; }
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { max-width: 56ch; font-size: 1.15rem; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2.25rem; }
+    .btn {
+      display: inline-flex; align-items: center; padding: .8rem 1.5rem; border-radius: 999px;
+      font-size: .9rem; font-weight: 600; border: 1px solid var(--border); transition: transform .2s, border-color .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { background: var(--accent); color: #001018; border-color: var(--accent); }
+    .btn.primary:hover { background: color-mix(in srgb, var(--accent) 85%, white); }
+
+    /* Sections */
+    section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+    .section-head { margin-bottom: 2.75rem; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; letter-spacing: -.02em; margin: .5rem 0 .5rem; }
+    .section-head p { color: var(--muted); margin: 0; }
+
+    .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.6rem; transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 60%, var(--border)); box-shadow: 0 14px 40px -18px rgba(34, 211, 238, .35); }
+    .card h3 { margin: 0 0 .5rem; font-size: 1.1rem; font-weight: 600; }
+    .card p { margin: 0 0 1.1rem; color: var(--muted); font-size: .93rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; padding: 0; margin: 0; }
+    .tags li {
+      font-size: .74rem; font-weight: 500; padding: .25rem .7rem; border-radius: 999px;
+      background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
+    }
+
+    /* About */
+    .about { display: grid; gap: 3rem; grid-template-columns: 1.2fr 1fr; align-items: start; }
+    .about p { color: var(--muted); margin: 0 0 1.1rem; }
+    .about p:first-child { color: var(--text); font-size: 1.15rem; }
+    .label { font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
+    .stack { margin-top: 2.25rem; }
+
+    .timeline { list-style: none; margin: 0; padding: 0 0 0 1.4rem; border-left: 2px solid var(--border); }
+    .timeline li { position: relative; padding-bottom: 1.75rem; }
+    .timeline li::before {
+      content: ""; position: absolute; left: calc(-1.4rem - 7px); top: .45rem; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--bg); border: 2px solid var(--muted);
+    }
+    .timeline li.current::before { border-color: var(--accent); background: var(--accent); }
+    .timeline h4 { margin: 0; font-size: 1rem; font-weight: 600; }
+    .timeline .meta { color: var(--accent); font-size: .85rem; margin: .15rem 0 .4rem; }
+    .timeline p { margin: 0; font-size: .9rem; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .actions { justify-content: center; }
+    .contact .lead { margin-inline: auto; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 0; color: var(--muted); font-size: .82rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+
+    /* Motion */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .card, .btn { transition: none; }
+    }
+
+    @media (max-width: 760px) {
+      .about { grid-template-columns: 1fr; gap: 2.25rem; }
+      nav ul { gap: 1.1rem; }
+      nav a { font-size: .75rem; letter-spacing: .04em; }
+    }
+  </style>
 </head>
-<body class="bg-black text-white">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-8 py-6 flex justify-between items-center bg-black/50 backdrop-blur-sm">
-        <div class="text-xl font-light tracking-widest">M.N</div>
-        <div class="flex gap-8 text-sm tracking-wider">
-            <a href="#home" class="text-gray-500 hover:text-cyan-400 transition-all">HOME</a>
-            <a href="#work" class="text-gray-500 hover:text-cyan-400 transition-all">WORK</a>
-            <a href="#about" class="text-gray-500 hover:text-cyan-400 transition-all">ABOUT</a>
-            <a href="#contact" class="text-gray-500 hover:text-cyan-400 transition-all">CONTACT</a>
-        </div>
-    </nav>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Home Section -->
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-8 relative">
-        <div class="text-center">
-            <h1 class="text-6xl md:text-8xl font-extralight tracking-tight mb-4">Mohammed</h1>
-            <h1 class="text-6xl md:text-8xl font-extralight tracking-tight gradient-text mb-8">Nugdalla</h1>
-            <p class="text-gray-500 text-lg tracking-widest mb-12">AI ENGINEER · BUILDER · PROBLEM SOLVER</p>
-            
-            <div class="flex gap-4 justify-center">
-                <a href="#work" class="px-8 py-3 border border-cyan-400 text-cyan-400 text-sm tracking-widest hover:bg-cyan-400 hover:text-black transition-all duration-300">VIEW WORK</a>
-                <a href="#contact" class="px-8 py-3 border border-gray-700 text-gray-400 text-sm tracking-widest hover:border-gray-500 hover:text-white transition-all duration-300">CONTACT</a>
-            </div>
-
-            <div class="w-px h-24 bg-gradient-to-b from-cyan-400 to-transparent mx-auto mt-16"></div>
-        </div>
-        
-        <div class="absolute bottom-12 left-8 text-gray-600 text-sm italic">"Here and there — but mostly in the code."</div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="min-h-screen pt-32 px-8 md:px-16 lg:px-32 pb-20">
-        <h2 class="text-5xl font-extralight mb-4">Selected <span class="text-cyan-400">Work</span></h2>
-        <p class="text-gray-600 mb-16">Projects I've built from scratch</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">IRIS Glucose Monitoring</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">ML pipeline for non-invasive glucose estimation from iris imaging</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">ML</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Medical AI</span>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">Thermal Bag Hygiene Checker</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">AI-powered tool for delivery companies to verify rider bag cleanliness via image analysis, generating hygiene reports and scores</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Gemini API</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Computer Vision</span>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">AI Compliance Checker</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">LLM-powered tool with Gemini API & structured prompts</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Gemini API</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">LLM</span>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">DEX Screening Bot</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">Crypto filtering by market cap, volume, price changes</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">APIs</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Crypto</span>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">E-Commerce Scraper</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">Large-scale data extraction & Excel export</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Automation</span>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="group p-8 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 hover:bg-cyan-400/5">
-                <h3 class="text-xl font-light mb-3 group-hover:text-cyan-400 transition-colors">Facial Recognition</h3>
-                <p class="text-gray-500 text-sm mb-4 leading-relaxed">Real-time face detection with OpenCV</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">Python</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">OpenCV</span>
-                    <span class="text-xs text-cyan-400 border border-gray-800 px-3 py-1">ML</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="min-h-screen pt-32 px-8 md:px-16 lg:px-32 pb-20">
-        <div class="max-w-3xl">
-            <h2 class="text-5xl font-extralight mb-16">About <span class="text-cyan-400">Me</span></h2>
-            <div class="space-y-6 text-gray-400 leading-relaxed">
-                <p class="text-lg">I'm a Computer Scientist and AI Engineer based in Qatar. I don't sit still — if there's a problem, I'm probably already building something to solve it.</p>
-                <p>First Class Honours in Computer Science from Liverpool John Moores University. Currently exploring AI-driven solutions and building tools that actually work.</p>
-                <p>From ML pipelines predicting glucose levels to crypto bots screening markets at 3am — I build systems that solve real problems.</p>
-            </div>
-
-            <!-- Technologies -->
-            <div class="mt-16">
-                <h3 class="text-sm tracking-widest text-gray-600 mb-6">TECHNOLOGIES</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-blue-600 text-white text-xs font-medium px-3 py-1.5 rounded">Python</span>
-                    <span class="bg-orange-600 text-white text-xs font-medium px-3 py-1.5 rounded">Java</span>
-                    <span class="bg-yellow-500 text-black text-xs font-medium px-3 py-1.5 rounded">JavaScript</span>
-                    <span class="bg-blue-500 text-white text-xs font-medium px-3 py-1.5 rounded">SQL</span>
-                    <span class="bg-orange-500 text-white text-xs font-medium px-3 py-1.5 rounded">HTML5</span>
-                    <span class="bg-blue-400 text-white text-xs font-medium px-3 py-1.5 rounded">CSS3</span>
-                    <span class="bg-red-500 text-white text-xs font-medium px-3 py-1.5 rounded">Git</span>
-                    <span class="bg-green-600 text-white text-xs font-medium px-3 py-1.5 rounded">OpenCV</span>
-                    <span class="bg-purple-500 text-white text-xs font-medium px-3 py-1.5 rounded">Gemini API</span>
-                    <span class="bg-cyan-600 text-white text-xs font-medium px-3 py-1.5 rounded">REST APIs</span>
-                    <span class="bg-pink-600 text-white text-xs font-medium px-3 py-1.5 rounded">Machine Learning</span>
-                </div>
-            </div>
-
-            <!-- Experience -->
-            <div class="mt-16">
-                <h3 class="text-sm tracking-widest text-gray-600 mb-6">EXPERIENCE</h3>
-                <div class="space-y-6">
-                    <div class="border-l-2 border-cyan-400 pl-6">
-                        <h4 class="text-white font-light">Microsoft 365 Copilot Ambassador</h4>
-                        <p class="text-cyan-400 text-sm">Microsoft (via Teknowledge) · Jan 2025 - Jul 2025</p>
-                        <p class="text-gray-500 text-sm mt-2">Supporting AI-driven workflows and Copilot adoption</p>
-                    </div>
-                    <div class="border-l-2 border-gray-700 pl-6">
-                        <h4 class="text-white font-light">Field Interviewer</h4>
-                        <p class="text-gray-500 text-sm">Ipsos · Qatar · 2025</p>
-                        <p class="text-gray-500 text-sm mt-2">Structured interviews and research methodologies</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="min-h-screen flex flex-col justify-center items-center px-8">
-        <div class="text-center">
-            <h2 class="text-5xl md:text-7xl font-extralight mb-8">Let's <span class="text-cyan-400">Connect</span></h2>
-            <p class="text-gray-500 mb-12">Open to opportunities and collaborations</p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="mailto:mv.vx98@gmail.com" class="px-8 py-4 border border-gray-800 hover:border-cyan-400 hover:text-cyan-400 transition-all text-sm tracking-widest">EMAIL</a>
-                <a href="https://www.linkedin.com/in/mohammednugdalla8118/" target="_blank" class="px-8 py-4 border border-gray-800 hover:border-cyan-400 hover:text-cyan-400 transition-all text-sm tracking-widest">LINKEDIN</a>
-                <a href="https://github.com/l2f9" target="_blank" class="px-8 py-4 border border-gray-800 hover:border-cyan-400 hover:text-cyan-400 transition-all text-sm tracking-widest">GITHUB</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div class="py-8 px-8 flex justify-between text-xs text-gray-700">
-        <span>QATAR</span>
-        <span>© 2025 MOHAMMED NUGDALLA</span>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#home" aria-label="Mohammed Nugdalla, home">M<span>.</span>N</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="wrap">
+        <p class="eyebrow">AI Engineer · Builder · Problem Solver</p>
+        <h1>Mohammed<br><span class="gradient">Nugdalla</span></h1>
+        <p class="lead">I build machine learning pipelines, LLM-powered tools and automation that solve real problems. Computer Science graduate based in Qatar.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">View work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Selected work</h2>
+          <p>Projects I've built from scratch.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <h3>IRIS Glucose Monitoring</h3>
+            <p>ML pipeline for non-invasive glucose estimation from iris imaging.</p>
+            <ul class="tags"><li>Python</li><li>Machine Learning</li><li>Medical AI</li></ul>
+          </article>
+          <article class="card reveal">
+            <h3>Thermal Bag Hygiene Checker</h3>
+            <p>Tool for delivery companies to verify rider bag cleanliness through image analysis, producing hygiene reports and scores.</p>
+            <ul class="tags"><li>Python</li><li>Gemini API</li><li>Computer Vision</li></ul>
+          </article>
+          <article class="card reveal">
+            <h3>AI Compliance Checker</h3>
+            <p>LLM-powered compliance tool built on the Gemini API with structured prompts.</p>
+            <ul class="tags"><li>Python</li><li>Gemini API</li><li>LLM</li></ul>
+          </article>
+          <article class="card reveal">
+            <h3>DEX Screening Bot</h3>
+            <p>Crypto screening by market cap, volume and price changes.</p>
+            <ul class="tags"><li>Python</li><li>APIs</li><li>Crypto</li></ul>
+          </article>
+          <article class="card reveal">
+            <h3>E-Commerce Scraper</h3>
+            <p>Large-scale data extraction with Excel export.</p>
+            <ul class="tags"><li>Python</li><li>Automation</li></ul>
+          </article>
+          <article class="card reveal">
+            <h3>Facial Recognition</h3>
+            <p>Real-time face detection with OpenCV.</p>
+            <ul class="tags"><li>Python</li><li>OpenCV</li><li>ML</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2>About me</h2>
+          <p>I'm a Computer Scientist and AI Engineer based in Qatar. If there's a problem, I'm probably already building something to solve it.</p>
+          <p>First Class Honours in Computer Science from Liverpool John Moores University. I'm focused on AI-driven solutions and tools that actually work.</p>
+          <p>From ML pipelines that estimate glucose levels to crypto bots that screen markets at 3am, I build systems for real problems.</p>
+
+          <div class="stack">
+            <p class="label">Technologies</p>
+            <ul class="tags">
+              <li>Python</li><li>Java</li><li>JavaScript</li><li>SQL</li><li>HTML5</li><li>CSS3</li>
+              <li>Git</li><li>OpenCV</li><li>Gemini API</li><li>REST APIs</li><li>Machine Learning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="label">Experience</p>
+          <ol class="timeline">
+            <li class="current">
+              <h4>Microsoft 365 Copilot Ambassador</h4>
+              <p class="meta">Microsoft (via Teknowledge) · Jan 2025 – Jul 2025</p>
+              <p>Supporting AI-driven workflows and Copilot adoption.</p>
+            </li>
+            <li>
+              <h4>Field Interviewer</h4>
+              <p class="meta">Ipsos · Qatar · 2025</p>
+              <p>Structured interviews and research methodologies.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's <span class="gradient">connect</span></h2>
+        <p class="lead">Open to opportunities and collaborations.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:mv.vx98@gmail.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/mohammednugdalla8118/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/l2f9" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Qatar</span>
+      <span>&copy; <span id="year">2025</span> Mohammed Nugdalla</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('in'));
+    }
+  </script>
 </body>
 </html>
