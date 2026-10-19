@@ -153,7 +153,14 @@
     @media (hover: hover) {
       .row:hover { background: var(--accent); color: var(--on-accent); padding-inline: 1.25rem; }
       .row:hover .n, .row:hover p, .row:hover .stack { color: color-mix(in srgb, var(--on-accent) 78%, transparent); }
+      .row.off:hover { background: none; color: inherit; padding-inline: .25rem; }
+      .row.off:hover .n { color: var(--accent); }
+      .row.off:hover p, .row.off:hover .stack { color: var(--muted); }
     }
+    /* A project that is switched off: greyed out, and clicking it says so instead of navigating. */
+    .row.off { cursor: not-allowed; }
+    .row.off .n, .row.off h3, .row.off p:not(.off-note), .row.off .stack { opacity: .4; }
+    .row.off .off-note { margin: .6rem 0 0; font-size: .78rem; letter-spacing: .04em; color: var(--accent); }
 
     .about { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2rem, 6vw, 6rem); }
     .about .prose p { margin: 0 0 1.2rem; max-width: 56ch; color: color-mix(in srgb, var(--ink) 82%, transparent); font-weight: 300; }
@@ -279,9 +286,9 @@
             <div><h3><a href="https://github.com/l2f9/HoodiesBus" target="_blank" rel="noopener noreferrer">HoodiesBus <span aria-hidden="true">&nearr;</span></a></h3><p>A web platform for designing custom hoodies in real-time 3D, with an AI design assistant. Open source.</p></div>
             <span class="stack">Next.js / Three.js / Node.js</span>
           </li>
-          <li class="row">
+          <li class="row off">
             <span class="n">02</span>
-            <div><h3><a href="Copilot-portfolio/">M365 Copilot Adoption <span aria-hidden="true">&nearr;</span></a></h3><p>A bilingual, Arabic and English overview of how I can support Microsoft 365 Copilot rollout.</p></div>
+            <div><h3><a href="#work" class="off-link" aria-disabled="true">M365 Copilot Adoption</a></h3><p>A bilingual, Arabic and English overview of how I can support Microsoft 365 Copilot rollout.</p><p class="off-note mono" role="status" hidden>Currently unreachable.</p></div>
             <span class="stack">Arabic / English / Copilot</span>
           </li>
           <li class="row">
@@ -658,7 +665,7 @@
       if (npc.tgtCheck <= 0 && npc.state !== 'exit') {
         npc.tgtCheck = 0.12;
         let el = null;
-        if (ptr.active && !ptr.down) { const h = document.elementFromPoint(ptr.x, ptr.y); el = h && h.closest ? h.closest('a[href], button, .row') : null; if (el && el.classList.contains('skip')) el = null; }
+        if (ptr.active && !ptr.down) { const h = document.elementFromPoint(ptr.x, ptr.y); el = h && h.closest ? h.closest('a[href], button, .row') : null; if (el && (el.classList.contains('skip') || el.closest('.off'))) el = null; }
         if (el) {
           const r = el.getBoundingClientRect();
           npc.elX = clamp(r.left + r.width / 2, 40, W - 40); npc.elY = r.top + r.height / 2;
@@ -867,6 +874,16 @@
     }
     document.addEventListener('visibilitychange', () => { frame.last = 0; });
   })();
+  </script>
+  <script>
+    // Switched-off projects: no navigation, just a short notice.
+    document.querySelectorAll('.row.off').forEach(function (row) {
+      var note = row.querySelector(".off-note");
+      row.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (note) note.hidden = false;
+      });
+    });
   </script>
 </body>
 </html>
