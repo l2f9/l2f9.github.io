@@ -167,9 +167,6 @@
     .row.soon .soon-tag { position: absolute; inset-inline: 0; top: 50%; transform: translateY(-50%); margin-inline: auto; width: max-content; padding: .45rem 1.1rem; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); background: color-mix(in srgb, var(--paper, #000) 78%, transparent); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
     .row.off .off-note { margin: .6rem 0 0; font-size: .78rem; letter-spacing: .04em; color: var(--accent); }
 
-    .about { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2rem, 6vw, 6rem); }
-    .about .prose p { margin: 0 0 1.2rem; max-width: 56ch; color: color-mix(in srgb, var(--ink) 82%, transparent); font-weight: 300; }
-    .about .prose p:first-child { font: 200 clamp(1.5rem, 2.7vw, 2.1rem)/1.3 var(--sans); letter-spacing: -.03em; max-width: 30ch; margin-bottom: 1.6rem; color: var(--ink); }
     .side h3 { margin: 0 0 .9rem; color: var(--muted); font-weight: 400; }
     .side ul { list-style: none; margin: 0 0 2.2rem; padding: 0; }
     .side li { padding: .8rem 0; border-top: 1px solid var(--rule); }
@@ -213,7 +210,6 @@
       .lead, .note { display: none; }
       .kicker { margin-bottom: .9rem; }
       .progress { display: none; }
-      .about { grid-template-columns: minmax(0, 1fr); }
       .row { grid-template-columns: 2.6rem minmax(0, 1fr); }
       .row .stack { grid-column: 2; text-align: left; }
     }
@@ -237,7 +233,6 @@
         <a href="#top" aria-label="Back to top"><span class="logo-long">M. Nugdalla</span><span class="logo-short">M.N</span></a>
         <nav aria-label="Primary">
           <a href="#work">Work</a>
-          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
         <span class="right">
@@ -293,81 +288,53 @@
           </li>
           <li class="row">
             <span class="n">02</span>
+            <div><h3>Marketplace Data Extraction</h3><p>Parses a marketplace's embedded data into typed models, with rate limiting and logging, and exports multi-sheet Excel (73 subcategories and 45 merchants in one clean run).</p></div>
+            <span class="stack">Python / Selenium / pandas</span>
+          </li>
+          <li class="row">
+            <span class="n">03</span>
             <div><h3><a href="https://github.com/l2f9/thermal-bag-quality-checker" target="_blank" rel="noopener noreferrer">Thermal Bag Quality Checker <span aria-hidden="true">&nearr;</span></a></h3><p>Checks a courier's insulated bag from one photo with Gemini vision. An engineered prompt turns a weighted rubric into a pass or fail, and the reply is validated with a safe fallback.</p></div>
             <span class="stack">Python / Flask / Gemini API</span>
-          </li>
-          <li class="row off">
-            <span class="n">03</span>
-            <div><h3><a href="#work" class="off-link" aria-disabled="true">M365 Copilot Adoption</a></h3><p>A bilingual, Arabic and English overview of how I can support Microsoft 365 Copilot rollout.</p><p class="off-note mono" role="status" hidden>Currently unreachable.</p></div>
-            <span class="stack">Arabic / English / Copilot</span>
           </li>
           <li class="row">
             <span class="n">04</span>
             <div><h3>IRIS Eye Screening</h3><p>A CNN and SVM pipeline that classifies diabetes from images of the area around the eye, trained on an augmented dataset and tested on held-out data.</p></div>
             <span class="stack">Python / TensorFlow / Medical AI</span>
           </li>
-          <li class="row soon">
+          <li class="row">
             <span class="n">05</span>
+            <div><h3>AI Compliance Checker</h3><p>An LLM-powered compliance tool built on the Gemini API with structured prompts.</p></div>
+            <span class="stack">Python / Gemini API / LLM</span>
+          </li>
+          <li class="row">
+            <span class="n">06</span>
+            <div><h3>DEX Screening Bot</h3><p>Filters crypto markets by market cap, volume and price change, so nobody has to watch charts at 3am.</p></div>
+            <span class="stack">Python / APIs / Crypto</span>
+          </li>
+          <li class="row off">
+            <span class="n">07</span>
+            <div><h3><a href="#work" class="off-link" aria-disabled="true">M365 Copilot Adoption</a></h3><p>A bilingual, Arabic and English overview of how I can support Microsoft 365 Copilot rollout.</p><p class="off-note mono" role="status" hidden>Currently unreachable.</p></div>
+            <span class="stack">Arabic / English / Copilot</span>
+          </li>
+          <li class="row soon">
+            <span class="n">08</span>
             <div><h3>Ishara</h3><p>Something new, currently in the works.</p></div>
             <span class="stack">In progress</span>
             <span class="soon-tag mono">Coming soon</span>
           </li>
           <li class="row soon">
-            <span class="n">06</span>
+            <span class="n">09</span>
             <div><h3>Digital Hospital Platform</h3><p>Something new, currently in the works.</p></div>
             <span class="stack">In progress</span>
             <span class="soon-tag mono">Coming soon</span>
-          </li>
-          <li class="row">
-            <span class="n">07</span>
-            <div><h3>Marketplace Data Extraction</h3><p>Parses a marketplace's embedded data into typed models, with rate limiting and logging, and exports multi-sheet Excel (73 subcategories and 45 merchants in one clean run).</p></div>
-            <span class="stack">Python / Selenium / pandas</span>
-          </li>
-          <li class="row">
-            <span class="n">08</span>
-            <div><h3>AI Compliance Checker</h3><p>An LLM-powered compliance tool built on the Gemini API with structured prompts.</p></div>
-            <span class="stack">Python / Gemini API / LLM</span>
-          </li>
-          <li class="row">
-            <span class="n">09</span>
-            <div><h3>DEX Screening Bot</h3><p>Filters crypto markets by market cap, volume and price change, so nobody has to watch charts at 3am.</p></div>
-            <span class="stack">Python / APIs / Crypto</span>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="panel" id="about" aria-labelledby="about-h">
-      <div class="page">
-        <div class="label"><span class="no mono">(02)</span><h2 id="about-h">About <em>me</em></h2></div>
-        <div class="about">
-          <div class="prose">
-            <p>I'm a computer scientist and AI engineer based in Qatar. If there's a problem, I'm probably already building something to solve it.</p>
-            <p>I graduated with First Class Honours in Computer Science from Liverpool John Moores University, and I care most about tools that actually work once they leave my laptop.</p>
-            <p>That has meant ML pipelines for medical images, language-model tools, and a 3D designer that anyone can use in the browser.</p>
-          </div>
-          <div class="side">
-            <h3 class="mono">Experience</h3>
-            <ul>
-              <li>
-                <strong>Microsoft 365 Copilot Ambassador</strong>
-                <span>Microsoft, via Teknowledge &middot; Feb&ndash;Aug 2025. Supporting AI-driven workflows and Copilot adoption.</span>
-              </li>
-              <li>
-                <strong>Field Interviewer</strong>
-                <span>Ipsos, Qatar &middot; 2025. Structured interviews and research methodology.</span>
-              </li>
-            </ul>
-            <h3 class="mono">Tools</h3>
-            <p class="tools">Python<i>/</i>TensorFlow<i>/</i>OpenCV<i>/</i>Gemini API<i>/</i>TypeScript<i>/</i>React<i>/</i>Node.js<i>/</i>SQL<i>/</i>Git<i>/</i>Docker<i>/</i>REST APIs<i>/</i>Machine learning</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="panel contact" id="contact" aria-labelledby="contact-h">
       <div class="page">
-        <div class="label"><span class="no mono">(03)</span><span class="mono" style="color:var(--muted)">Open to opportunities and collaborations</span></div>
+        <div class="label"><span class="no mono">(02)</span><span class="mono" style="color:var(--muted)">Open to opportunities and collaborations</span></div>
         <h2 id="contact-h">Let's <em>talk.</em></h2>
         <a class="mail" href="mailto:mv.vx98@gmail.com">mv.vx98@gmail.com</a>
         <div class="links mono">
